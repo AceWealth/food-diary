@@ -1,8 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const sassLoaders = [
+const styleLoader = [
+  "style-loader",
   "css-loader",
   "autoprefixer-loader?browsers=last 2 version",
   "sass-loader?indentedSyntax=sass&includePaths[]=" + path.resolve(__dirname, "./src"),
@@ -22,8 +22,7 @@ module.exports = {
     publicPath: '/static/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin("bundle.css")
+    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     loaders: [{
@@ -33,7 +32,7 @@ module.exports = {
       include: __dirname
     }, {
       test: /\.sass$/,
-      loader: ExtractTextPlugin.extract("style-loader", sassLoaders.join("!")),
+      loader: styleLoader.join("!")
     }]
   },
   resolve: {
