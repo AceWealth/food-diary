@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "mocha --recursive --compilers js:babel-core/register",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch --growl"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "babel-loader": "^5.1.4",
     "chai": "^3.2.0",
     "css-loader": "^0.17.0",
+    "growl": "^1.8.1",
     "jsdom": "^5.6.1",
     "mocha": "^2.2.5",
     "mocha-jsdom": "^1.0.0",
