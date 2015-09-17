@@ -1,5 +1,9 @@
 language: node_js
 node_js:
   - "0.12"
-  - "0.11"
-  - "0.10"
+# after_success:
+#   - bash ./deploy.sh
+# env:
+#   global:
+#   - GH_REF: github.com/sbycrosz/<github-repo>
+#   - secure: "<github-key>"
