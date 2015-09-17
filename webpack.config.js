@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const styleLoader = [
+const sassLoader = [
   "style-loader",
   "css-loader",
   "autoprefixer-loader?browsers=last 2 version",
@@ -18,8 +18,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/static/'
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
@@ -32,7 +31,25 @@ module.exports = {
       include: __dirname
     }, {
       test: /\.sass$/,
-      loader: styleLoader.join("!")
+      loader: sassLoader.join("!")
+    }, {
+      test: /\.css$/,
+      loader: 'style!css'
+    }, {
+      test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+      loader: "url?limit=10000&mimetype=application/font-woff"
+    }, {
+      test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+      loader: "url?limit=10000&mimetype=application/font-woff"
+    }, {
+      test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+      loader: "url?limit=10000&mimetype=application/octet-stream"
+    }, {
+      test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+      loader: "file"
+    }, {
+      test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+      loader: "url?limit=10000&mimetype=image/svg+xml"
     }]
   },
   resolve: {

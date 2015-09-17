@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node server.js",
     "test": "mocha --recursive --compilers js:babel-core/register",
-    "test:watch": "npm test -- --watch --growl"
+    "test:watch": "npm test -- --watch --growl",
+    "package": "webpack --config webpack.config.prod.js"
   },
   "repository": {
     "type": "git",
