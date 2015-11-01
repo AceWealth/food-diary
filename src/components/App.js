@@ -1,16 +1,19 @@
 import React, { Component, PropTypes } from 'react';
+import SearchForm from './SearchForm';
 
-class App extends Component {
+export default class App extends Component {
   render() {
+    const { SearchFormAction, searchTerm } = this.props;
     return (
-      <p>
-        Hello World!
-      </p>
+      <div className='container'>
+        <SearchForm {... SearchFormAction }
+                    searchTerm={searchTerm}/>
+      </div>
     );
   }
 }
 
 App.propTypes = {
+  searchTerm: PropTypes.string.isRequired,
+  SearchFormAction: PropTypes.objectOf(PropTypes.func).isRequired
 };
-
-export default App;
