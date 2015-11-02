@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import { isEmpty } from '../../utilities/extendedLodash';
+
+import NoResult from '../NoResult';
 
 export default class SearchResults extends Component {
   static propTypes = {
@@ -9,11 +12,22 @@ export default class SearchResults extends Component {
   _renderSearchResult = (searchResult) => {
     const {onSelect} = this.props;
     return (
-      <li className='search-result'
+      <div className='search-result'
           key={searchResult._id}
           onClick={onSelect.bind(this, searchResult)}>
         {searchResult.name}
-      </li>);
+      </div>);
+  }
+
+  _renderSearchResults(searchResults){
+    return(
+      <div className='search-results'>
+        <h3>
+          { searchResults.length } results found
+        </h3>
+        { searchResults.map(this._renderSearchResult)}
+      </div>
+      );
   }
 
   render() {
@@ -21,13 +35,8 @@ export default class SearchResults extends Component {
 
     return (
       <div className='search-results-container'>
-        <h3>
-          { searchResults.length } results found
-        </h3>
-
-        <ul className='search-results'>
-          { searchResults.map(this._renderSearchResult)}
-        </ul>
+        { isEmpty(searchResults)? <NoResult message="No result found"/>:
+                                  this._renderSearchResults(searchResults)}
       </div>
     );
   }

@@ -8,7 +8,7 @@ import { Route } from 'react-router';
 export default class App extends Component {
   render() {
     return (
-      <div className='container'>
+      <div className='app-container'>
         <h1 className="app-header"> Food Diary </h1>
         <ReduxRouter>
           <Route path="/" component={FoodDiary}/>

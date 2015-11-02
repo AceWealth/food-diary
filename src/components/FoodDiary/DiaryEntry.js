@@ -10,14 +10,14 @@ export default class DiaryEntry extends Component {
   render(){
     const {name, timestamp} = this.props;
     return (
-      <li className='diary-entry'>
+      <div className='diary-entry'>
         <span className="timestamp">
           { DateFormatter.formatTime(timestamp) }
         </span>
         <div className='name'>
           {name}
         </div>
-      </li>
+      </div>
     );
   }
 }

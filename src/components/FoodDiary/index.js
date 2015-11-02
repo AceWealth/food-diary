@@ -22,11 +22,9 @@ export default class FoodDiary extends Component {
     return (
         <div className='diary-container'>
           <DiaryHeader {...this.props}/>
-          <a className='add-food'
-             onClick={goto.bind(this, "/add-food")}>
-            Add Food
-          </a>
           <DiaryContent {...this.props}/>
+          <a className='add-food'
+             onClick={goto.bind(this, "/add-food")}/>
         </div>
       );
   }

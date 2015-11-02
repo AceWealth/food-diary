@@ -1,8 +1,65 @@
 @import "config/color"
 @import "font-awesome-mixin"
 
-* *
-  font-family: Open-Sans, Helvetica, Sans-Serif
+a
+  color: $color-primary
+  &:hover, &:active
+    color: $color-secondary
 
 html, body
-  color: $text-color-black
+  color: $color-dark
+  background: $color-dark
+
+.app-container
+  background: $color-light
+
+.app-header
+  @include fa($fa-heartbeat)
+  background: $color-primary
+  color: $color-light
+
+// Diary View
+.diary-container
+  a
+    font-size: 1.5em
+
+  .previous-day
+    @include fa($fa-chevron-left)
+
+  .next-day
+    @include fa($fa-chevron-right)
+
+  .add-food
+    @include fa($fa-plus-circle)
+
+// Search Form
+.search-form input
+  border: none
+  outline: none
+  border-top: 1px solid rgba($color-primary, 0.7)
+  border-bottom: 1px solid rgba($color-primary, 0.7)
+  font-size: 1.2em
+  background: lighter($color-light, 100%)
+
+// Common
+.search-result,
+.diary-entry
+  border-top: 1px solid rgba($color-primary, 0.3)
+  font-size: 1em
+
+  &:last-child
+    border-bottom: 1px solid rgba($color-primary, 0.3)
+
+.empty-message
+  color: $color-gray
+  font-style: italic
+  text-align: center
+
+.spinner-container
+  display: flex
+  justify-content: center
+
+  .spinner
+    @include fa($fa-cog)
+    font-size: 3em
+    padding: 50px

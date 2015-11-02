@@ -9,6 +9,7 @@ import * as FoodDiaryActions from '../../actions/FoodDiaryActions'
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 import AddFoodHeader from './AddFoodHeader';
+import Spinner from '../Spinner';
 
 @connect( state => state,
           bindActions({ NavigationActions, AddFoodActions, FoodDiaryActions}))
@@ -30,7 +31,7 @@ export default class AddFood extends Component {
         <SearchForm {... AddFoodActions }
                     searchTerm={searchTerm}/>
         { searchTerm && !searchResults &&
-          <div> spinner </div> }
+          <Spinner/>}
         { searchTerm && searchResults &&
           <SearchResults searchResults={searchResults}
                          onSelect={FoodDiaryActions.addFood}/> }

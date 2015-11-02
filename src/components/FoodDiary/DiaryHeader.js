@@ -11,15 +11,11 @@ export default class DiaryHeader extends Component {
 
     return (
       <div className='diary-header'>
-        <a className='previous-day'>
-          Previous
-        </a>
+        <a className='previous-day'/>
         <h2>
           { DateFormatter.formatDate(displayedDate) }
         </h2>
-        <a className='next-day'>
-          Next
-        </a>
+        <a className='next-day'/>
       </div>
     );
   }
