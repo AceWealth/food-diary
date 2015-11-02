@@ -1,5 +1,5 @@
 import {ADD_FOOD} from '../actions/FoodDiaryActions'
-import {push} from '../utilities/ImmutableUtils';
+import {push} from '../utilities/extendedLodash';
 
 export default function diaryEntriesReducer(diaryEntries = [], action){
   switch (action.type) {

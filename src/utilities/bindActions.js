@@ -1,5 +1,5 @@
 import { bindActionCreators } from 'redux';
-import _ from 'lodash';
+import _ from './extendedLodash';
 
 export default function bindActions(actionGroups) {
   return (dispatch) => _.mapValues(actionGroups, (actionGroup) =>

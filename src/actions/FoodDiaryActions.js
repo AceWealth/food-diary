@@ -1,5 +1,5 @@
 import { goto } from './NavigationActions';
-import { pushState } from 'redux-router';
+import { assign } from '../utilities/extendedLodash';
 
 export const ADD_FOOD = "ADD_FOOD";
 
@@ -13,6 +13,6 @@ export function addFood(foodItem) {
 function addFoodAction(foodItem){
   return {
     type: ADD_FOOD,
-    diaryEntry: Object.assign({timestamp: new Date()}, foodItem)
+    diaryEntry: assign(foodItem, {timestamp: new Date()})
   }
 }

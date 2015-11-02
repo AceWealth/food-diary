@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { debounce } from 'lodash';
+import { debounce } from '../../utilities/extendedLodash';
 
 export default class SearchForm extends Component {
   static propTypes = {
