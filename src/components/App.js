@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import SearchForm from './SearchForm';
-import SearchResults from './SearchResults';
+import AddFood from './AddFood';
+import FoodDiary from './FoodDiary';
 
 export default class App extends Component {
   static propTypes = {
@@ -10,15 +10,11 @@ export default class App extends Component {
   }
 
   render() {
-    const { SearchFormAction, searchTerm, searchResults } = this.props;
     return (
       <div className='container'>
-        <SearchForm {... SearchFormAction }
-                    searchTerm={searchTerm}/>
-        { searchTerm && !searchResults &&
-          <div> spinner </div> }
-        { searchTerm && searchResults &&
-          <SearchResults searchResults={searchResults}/> }
+        <h1 className="app-header"> Food Diary </h1>
+        <AddFood {...this.props}/>
+        <FoodDiary {...this.props}/>
       </div>
     );
   }
