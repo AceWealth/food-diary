@@ -20,9 +20,6 @@ html, body
 
 // Diary View
 .diary-container
-  a
-    font-size: 1.5em
-
   .previous-day
     @include fa($fa-chevron-left)
 
@@ -33,6 +30,9 @@ html, body
     @include fa($fa-plus-circle)
 
 // Search Form
+.cancel-button
+  @include fa($fa-chevron-left)
+
 .search-form input
   border: none
   outline: none
@@ -42,6 +42,11 @@ html, body
   background: lighter($color-light, 100%)
 
 // Common
+.add-food-header,
+.diary-header
+  a
+    font-size: 1.5em
+
 .search-result,
 .diary-entry
   border-top: 1px solid rgba($color-primary, 0.3)

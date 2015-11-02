@@ -10,9 +10,7 @@ export default class AddFoodHeader extends Component {
     return (
       <div className='add-food-header'>
         <a className='cancel-button'
-            onClick={onCancel}>
-          Cancel
-        </a>
+            onClick={onCancel}/>
         <h2>Add Food</h2>
       </div>
     );
