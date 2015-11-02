@@ -14,9 +14,9 @@ export default class DiaryHeader extends Component {
         <a className='previous-day'>
           Previous
         </a>
-        <span className='displayed-date'>
+        <h2>
           { DateFormatter.formatDate(displayedDate) }
-        </span>
+        </h2>
         <a className='next-day'>
           Next
         </a>

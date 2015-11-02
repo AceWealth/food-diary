@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import AddFood from './AddFood';
-import FoodDiary from './FoodDiary';
+import AddFood from './AddFood/';
+import FoodDiary from './FoodDiary/';
 
 export default class App extends Component {
   static propTypes = {

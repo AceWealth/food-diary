@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
+import AddFoodHeader from './AddFoodHeader';
 
 export default class AddFood extends Component {
   static propTypes = {
@@ -13,6 +14,7 @@ export default class AddFood extends Component {
     const { SearchFormAction, searchTerm, searchResults} = this.props;
     return (
       <div className='add-food-container'>
+        <AddFoodHeader/>
         <SearchForm {... SearchFormAction }
                     searchTerm={searchTerm}/>
         { searchTerm && !searchResults &&
