@@ -4,7 +4,7 @@ import DateFormatter from '../../utilities/DateFormatter'
 export default class DiaryEntry extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    timestamp: React.PropTypes.instanceOf(Date).isRequired
+    timestamp: PropTypes.instanceOf(Date).isRequired
   }
 
   render(){

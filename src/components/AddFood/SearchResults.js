@@ -2,13 +2,16 @@ import React, { Component, PropTypes } from 'react';
 
 export default class SearchResults extends Component {
   static propTypes = {
-    searchResults: PropTypes.array.isRequired
+    searchResults: PropTypes.array.isRequired,
+    onSelect: PropTypes.func.isRequired
   }
 
-  _renderSearchResult(searchResult){
+  _renderSearchResult = (searchResult) => {
+    const {onSelect} = this.props;
     return (
       <li className='search-result'
-          key={searchResult._id}>
+          key={searchResult._id}
+          onClick={onSelect.bind(this, searchResult)}>
         {searchResult.name}
       </li>);
   }

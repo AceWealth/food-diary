@@ -6,8 +6,8 @@ import { reduxReactRouter } from 'redux-router';
 
 export default function configureStore(initialState) {
   const store = compose(
-    reduxReactRouter({ createHistory }),
-    applyMiddleware(thunk)
+    applyMiddleware(thunk),
+    reduxReactRouter({ createHistory })
   )(createStore)(reducer);
 
   if (module.hot) {

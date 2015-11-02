@@ -12,7 +12,7 @@ import DiaryContent from './DiaryContent';
          bindActions({NavigationActions}))
 export default class FoodDiary extends Component {
   static propTypes = {
-    displayedDate: PropTypes.object.isRequired,
+    displayedDate: PropTypes.instanceOf(Date).isRequired,
     diaryEntries: PropTypes.array.isRequired,
     NavigationActions: PropTypes.object.isRequired
   }

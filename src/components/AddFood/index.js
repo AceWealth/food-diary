@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import bindActions from '../../utilities/bindActions';
 import * as NavigationActions from '../../actions/NavigationActions'
 import * as AddFoodActions from '../../actions/AddFoodActions';
+import * as FoodDiaryActions from '../../actions/FoodDiaryActions'
 
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 import AddFoodHeader from './AddFoodHeader';
 
 @connect( state => state,
-          bindActions({ NavigationActions, AddFoodActions }))
+          bindActions({ NavigationActions, AddFoodActions, FoodDiaryActions}))
 export default class AddFood extends Component {
   static propTypes = {
     searchTerm: PropTypes.string.isRequired,
@@ -20,7 +21,7 @@ export default class AddFood extends Component {
   }
 
   render() {
-    const { AddFoodActions, searchTerm, searchResults } = this.props;
+    const { AddFoodActions, FoodDiaryActions, searchTerm, searchResults } = this.props;
     const { goto } = this.props.NavigationActions;
 
     return (
@@ -31,7 +32,8 @@ export default class AddFood extends Component {
         { searchTerm && !searchResults &&
           <div> spinner </div> }
         { searchTerm && searchResults &&
-          <SearchResults searchResults={searchResults}/> }
+          <SearchResults searchResults={searchResults}
+                         onSelect={FoodDiaryActions.addFood}/> }
       </div>
     );
   }
