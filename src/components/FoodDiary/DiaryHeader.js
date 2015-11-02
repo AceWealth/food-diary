@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import DateFormatter from '../../utilities/DateFormatter'
+import DateUtilities from '../../utilities/DateUtilities'
 
 export default class DiaryHeader extends Component {
   static propTypes = {
@@ -13,7 +13,7 @@ export default class DiaryHeader extends Component {
       <div className='diary-header'>
         <a className='previous-day'/>
         <h2>
-          { DateFormatter.formatDate(displayedDate) }
+          { DateUtilities.formatDate(displayedDate) }
         </h2>
         <a className='next-day'/>
       </div>

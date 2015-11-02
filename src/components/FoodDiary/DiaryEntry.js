@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import DateFormatter from '../../utilities/DateFormatter'
+import DateUtilities from '../../utilities/DateUtilities'
 
 export default class DiaryEntry extends Component {
   static propTypes = {
@@ -12,7 +12,7 @@ export default class DiaryEntry extends Component {
     return (
       <div className='diary-entry'>
         <span className="timestamp">
-          { DateFormatter.formatTime(timestamp) }
+          { DateUtilities.formatTime(timestamp) }
         </span>
         <div className='name'>
           {name}
