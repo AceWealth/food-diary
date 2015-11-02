@@ -2,8 +2,10 @@ import { combineReducers } from 'redux';
 import searchTerm from './SearchTerm';
 import searchResults from './SearchResults';
 import displayedDate from './DisplayedDate';
+import { routerStateReducer } from 'redux-router';
 
 const rootReducer = combineReducers({
+  router: routerStateReducer,
   searchTerm,
   searchResults,
   displayedDate,

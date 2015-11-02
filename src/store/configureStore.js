@@ -1,13 +1,14 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from '../reducers';
-
-const createStoreWithMiddleware = applyMiddleware(
-  thunk
-)(createStore);
+import createHistory from 'history/lib/createHashHistory';
+import { reduxReactRouter } from 'redux-router';
 
 export default function configureStore(initialState) {
-  const store = createStoreWithMiddleware(reducer, initialState);
+  const store = compose(
+    reduxReactRouter({ createHistory }),
+    applyMiddleware(thunk)
+  )(createStore)(reducer);
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
