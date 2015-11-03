@@ -1,5 +1,5 @@
 import { goto } from './NavigationActions';
-import { assign } from '../utilities/extendedLodash';
+import DiaryEntry from '../models/DiaryEntry';
 
 export const ADD_FOOD = "ADD_FOOD";
 
@@ -13,6 +13,6 @@ export function addFood(foodItem) {
 function addFoodAction(foodItem){
   return {
     type: ADD_FOOD,
-    diaryEntry: assign(foodItem, {timestamp: new Date()})
+    diaryEntry: new DiaryEntry(foodItem.name, new Date())
   }
 }
