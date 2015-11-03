@@ -13,12 +13,12 @@ export default class DiaryHeader extends Component {
     return (
       <div className='diary-header'>
         <a className='previous-day'
-           onClick={gotoDate.bind(this, nextDay(displayedDate))}/>
+           onClick={gotoDate.bind(this, previousDay(displayedDate))}/>
         <h2>
           { formatDate(displayedDate) }
         </h2>
         <a className='next-day'
-           onClick={gotoDate.bind(this, previousDay(displayedDate))}/>
+           onClick={gotoDate.bind(this, nextDay(displayedDate))}/>
       </div>
     );
   }
