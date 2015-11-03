@@ -19,6 +19,10 @@ const DateUtilities = {
 
   previousDay(date){
     return moment(date).subtract(1, 'days').toDate();
+  },
+
+  isSameDate(date1, date2){
+    return moment(date1).isSame(moment(date2), 'day');
   }
 }
 
