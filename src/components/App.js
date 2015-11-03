@@ -3,7 +3,7 @@ import AddFood from './AddFood/';
 import FoodDiary from './FoodDiary/';
 
 import { ReduxRouter } from 'redux-router';
-import { Route } from 'react-router';
+import { Route, Redirect } from 'react-router';
 
 export default class App extends Component {
   render() {
@@ -11,7 +11,8 @@ export default class App extends Component {
       <div className='app-container'>
         <h1 className="app-header"> Food Diary </h1>
         <ReduxRouter>
-          <Route path="/" component={FoodDiary}/>
+          <Redirect from="/" to="/dashboard" />
+          <Route path="/dashboard(/:displayedDate)" component={FoodDiary}/>
           <Route path="/add-food" component={AddFood}/>
         </ReduxRouter>
       </div>

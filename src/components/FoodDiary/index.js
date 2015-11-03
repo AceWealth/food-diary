@@ -7,21 +7,26 @@ import * as NavigationActions from '../../actions/NavigationActions'
 import DiaryHeader from './DiaryHeader';
 import DiaryContent from './DiaryContent';
 
+import DateUtilities from '../../utilities/DateUtilities';
 
 @connect(state => state,
          bindActions({NavigationActions}))
 export default class FoodDiary extends Component {
   static propTypes = {
-    displayedDate: PropTypes.instanceOf(Date).isRequired,
+    params: PropTypes.shape({
+      displayedDate: React.PropTypes.string
+    }),
     diaryEntries: PropTypes.array.isRequired,
     NavigationActions: PropTypes.object.isRequired
-  }
+  };
 
   render() {
     const {goto} = this.props.NavigationActions;
+    const displayedDate = this.props.params.displayedDate || DateUtilities.encode(new Date());
+
     return (
         <div className='diary-container'>
-          <DiaryHeader {...this.props}/>
+          <DiaryHeader {...this.props} displayedDate={new Date(displayedDate)}/>
           <DiaryContent {...this.props}/>
           <a className='add-food'
              onClick={goto.bind(this, "/add-food")}/>
