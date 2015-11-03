@@ -41,6 +41,13 @@ html, body
   font-size: 1.2em
   background: lighter($color-light, 100%)
 
+.search-result
+  @include fa($fa-search)
+  &:before
+    color: $color-secondary
+    font-size: 1.2em
+    margin-right: 15px
+
 // Common
 .add-food-header,
 .diary-header
@@ -54,6 +61,9 @@ html, body
 
   &:last-child
     border-bottom: 1px solid rgba($color-primary, 0.3)
+
+  &:hover
+    background: rgba($color-secondary, 0.2)
 
 .empty-message
   color: $color-gray

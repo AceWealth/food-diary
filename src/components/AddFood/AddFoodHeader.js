@@ -12,6 +12,7 @@ export default class AddFoodHeader extends Component {
         <a className='cancel-button'
             onClick={onCancel}/>
         <h2>Add Food</h2>
+        <a /* Unsemantic hack for centering the title *//>
       </div>
     );
   }

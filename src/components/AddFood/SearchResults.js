@@ -22,9 +22,6 @@ export default class SearchResults extends Component {
   _renderSearchResults(searchResults){
     return(
       <div className='search-results'>
-        <h3>
-          { searchResults.length } results found
-        </h3>
         { searchResults.map(this._renderSearchResult)}
       </div>
       );
