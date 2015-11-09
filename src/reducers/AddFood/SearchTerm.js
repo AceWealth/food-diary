@@ -1,4 +1,4 @@
-import {ON_SEARCH_TERM_CHANGES} from '../../actions/AddFoodActions';
+import {ON_SEARCH_TERM_CHANGES} from '../../actions/SearchFoodAction';
 import {ADD_FOOD} from '../../actions/FoodDiaryActions'
 
 export default function searchTermReducer(searchTerm = "", action){

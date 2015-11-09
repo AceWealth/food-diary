@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import bindActions from '../../utilities/bindActions';
 import * as NavigationActions from '../../actions/NavigationActions'
-import * as AddFoodActions from '../../actions/AddFoodActions';
+import * as SearchFoodAction from '../../actions/SearchFoodAction';
 import * as FoodDiaryActions from '../../actions/FoodDiaryActions'
 
 import SearchForm from './SearchForm';
@@ -14,17 +14,17 @@ import DateTimeInput from './DateTimeInput';
 
 
 @connect( state => state.addFood,
-          bindActions({ NavigationActions, AddFoodActions, FoodDiaryActions}))
+          bindActions({ NavigationActions, SearchFoodAction, FoodDiaryActions}))
 export default class AddFood extends Component {
   static propTypes = {
     searchTerm: PropTypes.string.isRequired,
     searchResults: PropTypes.array,
-    AddFoodActions: PropTypes.objectOf(PropTypes.func).isRequired,
+    SearchFoodAction: PropTypes.objectOf(PropTypes.func).isRequired,
     NavigationActions: PropTypes.objectOf(PropTypes.func).isRequired,
   }
 
   render() {
-    const { AddFoodActions, FoodDiaryActions, searchTerm, searchResults } = this.props;
+    const { SearchFoodAction, FoodDiaryActions, searchTerm, searchResults } = this.props;
     const { goto } = this.props.NavigationActions;
 
     return (
@@ -32,7 +32,7 @@ export default class AddFood extends Component {
         <AddFoodHeader onCancel={goto.bind(this, "/")}/>
         <DateTimeInput date={new Date(this.props.params.targetDate)}
                        onChange={() => {console.log('commit change to store')}}/>
-        <SearchForm {... AddFoodActions }
+        <SearchForm {... SearchFoodAction }
                     searchTerm={searchTerm}/>
         { searchTerm && !searchResults &&
           <Spinner/>}
