@@ -1,15 +1,6 @@
 @import "config/color"
 @import "font-awesome-mixin"
 
-a
-  color: $color-primary
-  &:hover, &:active
-    color: $color-secondary
-
-html, body
-  color: $color-dark
-  background: $color-dark
-
 .app-container
   background: $color-light
 
@@ -29,18 +20,8 @@ html, body
   .add-food
     @include fa($fa-plus-circle)
 
-  .diary-section
-    &.breakfast
-      background: rgba($color-primary, 0.1)
-
-    &.lunch
-      background: rgba($color-primary, 0.16)
-
-    &.supper
-      background: rgba($color-primary, 0.22)
-
-    &.snacks
-      background: rgba($color-primary, 0.28)
+  .section-header
+    background: rgba($color-primary, 0.2)
 
 
 // Search Form
@@ -64,7 +45,7 @@ html, body
       margin-right: 15px
 
     &:hover
-      background: rgba($color-secondary, 0.2)
+      background: rgba($color-primary, 0.2)
 
   .date-time
     font-size: 1.1em
