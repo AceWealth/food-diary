@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import diaryEntries from './DiaryEntries';
-import addFood from './addFood/';
+import addFood from './AddFood/';
 
 import { routerStateReducer as router } from 'redux-router';
 

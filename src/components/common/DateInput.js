@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import Pikaday from 'Pikaday';
+import Pikaday from 'pikaday';
 import 'pikaday/css/pikaday.css';
 import ReactDOM from 'react-dom';
 import { formatDate } from '../../utilities/DateUtilities'
