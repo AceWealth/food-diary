@@ -1,21 +1,21 @@
-import { goto } from './NavigationActions';
+import { gotoDashboard } from './NavigationActions';
 import DiaryEntry from '../models/DiaryEntry';
 
 export const ADD_FOOD = "ADD_FOOD";
 export const CHANGE_SELECTED_PERIOD = "CHANGE_SELECTED_PERIOD";
 
 
-export function addFood(foodItem) {
+export function addFood(targetDate, selectedPeriod, foodItem) {
   return (dispatch) => {
-    dispatch(addFoodAction(foodItem))
-    dispatch(goto('/'))
+    dispatch(addFoodAction(targetDate, selectedPeriod, foodItem))
+    dispatch(gotoDashboard(targetDate))
   };
 };
 
-function addFoodAction(foodItem){
+function addFoodAction(targetDate, selectedPeriod, foodItem){
   return {
     type: ADD_FOOD,
-    diaryEntry: new DiaryEntry(foodItem.name, new Date())
+    diaryEntry: new DiaryEntry(new Date(), foodItem.name, targetDate, selectedPeriod)
   }
 };
 

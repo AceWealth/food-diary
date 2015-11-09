@@ -7,7 +7,7 @@ import * as NavigationActions from '../../actions/NavigationActions'
 import DiaryHeader from './DiaryHeader';
 import DiaryContent from './DiaryContent';
 
-import {isSameDate, encode} from '../../utilities/DateUtilities';
+import {isSameDate} from '../../utilities/DateUtilities';
 
 @connect(state => state,
          bindActions({NavigationActions}))
@@ -18,20 +18,20 @@ export default class FoodDiary extends Component {
     }),
     diaryEntries: PropTypes.array.isRequired,
     NavigationActions: PropTypes.shape({
-      goto: PropTypes.func.isRequired,
+      gotoDashboard: PropTypes.func.isRequired,
       gotoAddFood: PropTypes.func.isRequired,
     }).isRequired
   };
 
   render() {
-    const {goto, gotoAddFood} = this.props.NavigationActions;
-    const displayedDate = this.props.params.displayedDate || encode(new Date());
-    const todayEntries = this.props.diaryEntries.filter((entry) => isSameDate(entry.timestamp, displayedDate));
+    const {gotoDashboard, gotoAddFood} = this.props.NavigationActions;
+    const displayedDate = this.props.params.displayedDate? new Date(this.props.params.displayedDate ) : new Date();
+    const todayEntries = this.props.diaryEntries.filter((entry) => isSameDate(entry.date, displayedDate));
 
     return (
         <div className='diary-container'>
-          <DiaryHeader displayedDate={new Date(displayedDate)}
-                       gotoDate={(date) => goto("/dashboard/" + encode(date)) } />
+          <DiaryHeader displayedDate={displayedDate}
+                       gotoDate={gotoDashboard} />
           <DiaryContent diaryEntries={todayEntries}/>
           <a className='add-food'
              onClick={() => gotoAddFood(displayedDate)}/>

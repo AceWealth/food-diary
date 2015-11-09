@@ -25,14 +25,14 @@ export default class AddFood extends Component {
 
   render() {
     const { SearchFoodAction, searchTerm, searchResults, selectedPeriod } = this.props;
-    const { goto, gotoAddFood } = this.props.NavigationActions;
+    const { gotoDashboard, gotoAddFood } = this.props.NavigationActions;
     const { addFood, changeSelectedPeriod } = this.props.FoodDiaryActions;
-    const { targetDate } = this.props.params;
+    const targetDate = new Date(this.props.params.targetDate);
 
     return (
       <div className='add-food-container'>
-        <AddFoodHeader onCancel={goto.bind(this, "/")}/>
-        <DateTimeInput date={new Date(targetDate)}
+        <AddFoodHeader onCancel={gotoDashboard.bind(this, targetDate)}/>
+        <DateTimeInput date={targetDate}
                        onDateChange={gotoAddFood}
                        period={ selectedPeriod }
                        onPeriodChange={changeSelectedPeriod}/>
@@ -42,7 +42,7 @@ export default class AddFood extends Component {
           <Spinner/>}
         { searchTerm && searchResults &&
           <SearchResults searchResults={searchResults}
-                         onSelect={addFood}/> }
+                         onSelect={addFood.bind(this, targetDate, selectedPeriod)}/> }
       </div>
     );
   }

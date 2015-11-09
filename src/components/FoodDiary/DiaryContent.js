@@ -4,8 +4,6 @@ import { isEmpty } from '../../utilities/extendedLodash';
 import DiaryEntry from './DiaryEntry';
 import NoResult from '../NoResult';
 
-import { sortBy } from '../../utilities/extendedLodash';
-
 export default class DiaryContent extends Component {
   static propTypes = {
     diaryEntries: PropTypes.array.isRequired
@@ -13,11 +11,11 @@ export default class DiaryContent extends Component {
 
   _renderEntries(diaryEntries) {
     return  diaryEntries.map((entry) =>
-      <DiaryEntry key={entry.timestamp} {...entry}/>);
+      <DiaryEntry key={entry.id} {...entry}/>);
   }
 
   render() {
-    const diaryEntries = sortBy(this.props.diaryEntries, (entry) => -entry.timestamp);
+    const diaryEntries = this.props.diaryEntries;
 
     return (
       <div className='diary-content'>
