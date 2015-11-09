@@ -6,16 +6,18 @@ import PeriodInput from '../common/PeriodInput';
 export default class DateTimeInput extends Component {
   static propTypes = {
     date: PropTypes.instanceOf(Date).isRequired,
-    onChange: PropTypes.func.isRequired
+    period: PropTypes.string.isRequired,
+    onDateChange: PropTypes.func.isRequired,
+    onPeriodChange: PropTypes.func.isRequired
   }
 
   render() {
-    const { date } = this.props;
+    const { date, onDateChange, period, onPeriodChange } = this.props;
 
     return (
       <div className="date-time">
-        <DateInput date={date} onChange={(date) => console.log(date)}/>
-        <PeriodInput onChange={(option) => {console.log('onChange', option)}}/>
+        <DateInput date={date} onChange={onDateChange}/>
+        <PeriodInput period={period} onChange={onPeriodChange}/>
       </div>
     );
   }

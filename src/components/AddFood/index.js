@@ -24,21 +24,25 @@ export default class AddFood extends Component {
   }
 
   render() {
-    const { SearchFoodAction, FoodDiaryActions, searchTerm, searchResults } = this.props;
-    const { goto } = this.props.NavigationActions;
+    const { SearchFoodAction, searchTerm, searchResults, selectedPeriod } = this.props;
+    const { goto, gotoAddFood } = this.props.NavigationActions;
+    const { addFood, changeSelectedPeriod } = this.props.FoodDiaryActions;
+    const { targetDate } = this.props.params;
 
     return (
       <div className='add-food-container'>
         <AddFoodHeader onCancel={goto.bind(this, "/")}/>
-        <DateTimeInput date={new Date(this.props.params.targetDate)}
-                       onChange={() => {console.log('commit change to store')}}/>
+        <DateTimeInput date={new Date(targetDate)}
+                       onDateChange={gotoAddFood}
+                       period={ selectedPeriod }
+                       onPeriodChange={changeSelectedPeriod}/>
         <SearchForm {... SearchFoodAction }
                     searchTerm={searchTerm}/>
         { searchTerm && !searchResults &&
           <Spinner/>}
         { searchTerm && searchResults &&
           <SearchResults searchResults={searchResults}
-                         onSelect={FoodDiaryActions.addFood}/> }
+                         onSelect={addFood}/> }
       </div>
     );
   }

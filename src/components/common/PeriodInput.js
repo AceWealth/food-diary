@@ -1,19 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 
 import Select from 'react-select'
-import { formatTime } from '../../utilities/DateUtilities'
+import Period from '../../models/Period';
 
 export default class PeriodInput extends Component {
   static propTypes = {
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    period: PropTypes.string.isRequired,
   }
-
-  static options = [
-    { label: 'Breakfast', value: 'breakfast' },
-    { label: 'Lunch', value: 'lunch' },
-    { label: 'Supper', value: 'supper' },
-    { label: 'Snacks', value: 'snacks' },
-  ]
 
   renderValue(option) {
     return (
@@ -26,14 +20,14 @@ export default class PeriodInput extends Component {
   }
 
   render(){
-    const { date, onChange } = this.props;
+    const { date, onChange, period } = this.props;
 
     return (
       <div className="timepicker">
-        <Select value={PeriodInput.options[0]}
+        <Select value={period}
             clearable={false}
             searchable={false}
-            options={PeriodInput.options}
+            options={Period}
             valueRenderer={this.renderValue}
             onChange={onChange}/>
       </div>

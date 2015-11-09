@@ -7,7 +7,7 @@ import * as NavigationActions from '../../actions/NavigationActions'
 import DiaryHeader from './DiaryHeader';
 import DiaryContent from './DiaryContent';
 
-import {encode, isSameDate} from '../../utilities/DateUtilities';
+import {isSameDate, encode} from '../../utilities/DateUtilities';
 
 @connect(state => state,
          bindActions({NavigationActions}))
@@ -17,11 +17,14 @@ export default class FoodDiary extends Component {
       displayedDate: React.PropTypes.string
     }),
     diaryEntries: PropTypes.array.isRequired,
-    NavigationActions: PropTypes.object.isRequired
+    NavigationActions: PropTypes.shape({
+      goto: PropTypes.func.isRequired,
+      gotoAddFood: PropTypes.func.isRequired,
+    }).isRequired
   };
 
   render() {
-    const {goto} = this.props.NavigationActions;
+    const {goto, gotoAddFood} = this.props.NavigationActions;
     const displayedDate = this.props.params.displayedDate || encode(new Date());
     const todayEntries = this.props.diaryEntries.filter((entry) => isSameDate(entry.timestamp, displayedDate));
 
@@ -31,7 +34,7 @@ export default class FoodDiary extends Component {
                        gotoDate={(date) => goto("/dashboard/" + encode(date)) } />
           <DiaryContent diaryEntries={todayEntries}/>
           <a className='add-food'
-             onClick={goto.bind(this, "/add-food/" + encode(displayedDate))}/>
+             onClick={() => gotoAddFood(displayedDate)}/>
         </div>
       );
   }

@@ -1,3 +1,5 @@
 import { pushState } from 'redux-router';
+import {encode} from '../utilities/DateUtilities';
 
-export const goto = (page) => pushState(null, page)
+export function goto(page){ return pushState(null, page); }
+export function gotoAddFood(date){ return goto("/add-food/" + encode(date)); }
