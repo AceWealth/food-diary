@@ -10,6 +10,8 @@ import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 import AddFoodHeader from './AddFoodHeader';
 import Spinner from '../Spinner';
+import DateTimeInput from './DateTimeInput';
+
 
 @connect( state => state,
           bindActions({ NavigationActions, AddFoodActions, FoodDiaryActions}))
@@ -28,6 +30,8 @@ export default class AddFood extends Component {
     return (
       <div className='add-food-container'>
         <AddFoodHeader onCancel={goto.bind(this, "/")}/>
+        <DateTimeInput date={new Date(this.props.params.targetDate)}
+                       onChange={() => {console.log('commit change to store')}}/>
         <SearchForm {... AddFoodActions }
                     searchTerm={searchTerm}/>
         { searchTerm && !searchResults &&
@@ -39,3 +43,5 @@ export default class AddFood extends Component {
     );
   }
 }
+
+

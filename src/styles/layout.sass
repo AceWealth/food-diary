@@ -35,16 +35,32 @@ html, body, #root
   padding: 40px 0
 
 // Search View
-.search-form
-  input
-    width: 100%
-    padding: 20px
+.add-food-container
+  .search-form
+    flex: 0 0 auto
+    input
+      width: 100%
+      padding: 20px
+
+  .date-time
+    display: flex
+    justify-content: center
+    align-items: center
+    flex: 0 0 auto
+    height: 50px
+
+    .timepicker
+      margin-left: 20px
+      display: flex
+      align-items: center
+
+
 
 // Common
-
 .add-food-header,
 .diary-header
   display: flex
+  flex: 0 0 auto
   justify-content: space-between
   align-items: center
 
@@ -75,4 +91,6 @@ html, body, #root
   width: 100%
   align-items: center
 
+.spinner-container
+  padding-top: 50px
 

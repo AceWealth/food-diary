@@ -30,23 +30,33 @@ html, body
     @include fa($fa-plus-circle)
 
 // Search Form
-.cancel-button
-  @include fa($fa-chevron-left)
+.add-food-container
+  .cancel-button
+    @include fa($fa-chevron-left)
 
-.search-form input
-  border: none
-  outline: none
-  border-top: 1px solid rgba($color-primary, 0.7)
-  border-bottom: 1px solid rgba($color-primary, 0.7)
-  font-size: 1.2em
-  background: lighter($color-light, 100%)
-
-.search-result
-  @include fa($fa-search)
-  &:before
-    color: $color-secondary
+  .search-form input
+    border: none
+    outline: none
+    border-top: 1px solid rgba($color-primary, 0.7)
+    border-bottom: 1px solid rgba($color-primary, 0.7)
     font-size: 1.2em
-    margin-right: 15px
+    background: lighter($color-light, 100%)
+
+  .search-result
+    @include fa($fa-search)
+    &:before
+      color: $color-secondary
+      font-size: 1.2em
+      margin-right: 15px
+
+  .date-time
+    font-size: 1.1em
+
+  .timepicker
+    @include fa($fa-clock-o)
+    &:before
+      margin-right: 15px
+
 
 // Common
 .add-food-header,
@@ -77,4 +87,22 @@ html, body
   .spinner
     @include fa($fa-cog)
     font-size: 3em
-    padding: 50px
+
+
+// Component
+.datepicker
+  @include fa($fa-calendar)
+  &:before
+    margin-right: 15px
+
+  .date
+    color: inherit
+    @extend %datetime-hover
+
+%datetime-hover
+  border-bottom: 4px solid transparent;
+  &:hover
+    border-bottom: 4px solid $color-secondary;
+
+.period-value
+  @extend %datetime-hover

@@ -31,7 +31,7 @@ export default class FoodDiary extends Component {
                        gotoDate={(date) => goto("/dashboard/" + encode(date)) } />
           <DiaryContent diaryEntries={todayEntries}/>
           <a className='add-food'
-             onClick={goto.bind(this, "/add-food")}/>
+             onClick={goto.bind(this, "/add-food/" + encode(displayedDate))}/>
         </div>
       );
   }

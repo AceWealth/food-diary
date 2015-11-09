@@ -11,7 +11,7 @@ const routes = (
     <Redirect from="/" to="dashboard"/>
     <Route path="/" component={App}>
       <Route path="dashboard(/:displayedDate)" component={FoodDiary}/>
-      <Route path="add-food" component={AddFood}/>
+      <Route path="add-food(/:targetDate)" component={AddFood}/>
     </Route>
   </ReduxRouter>
 );
