@@ -10,9 +10,6 @@ export default class DiaryEntry extends Component {
     const {name, period} = this.props;
     return (
       <div className='diary-entry'>
-        <span className="timestamp">
-          { period }
-        </span>
         <div className='name'>
           { name }
         </div>

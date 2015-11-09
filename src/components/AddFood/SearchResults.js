@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { isEmpty } from '../../utilities/extendedLodash';
 
-import NoResult from '../NoResult';
+import NoResult from '../common/NoResult';
 
 export default class SearchResults extends Component {
   static propTypes = {
