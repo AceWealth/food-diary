@@ -1,4 +1,4 @@
-import {ON_SEARCH_COMPLETED, ON_SEARCH_TERM_CHANGES} from '../actions/AddFoodActions';
+import {ON_SEARCH_COMPLETED, ON_SEARCH_TERM_CHANGES} from '../../actions/AddFoodActions';
 
 export default function searchTermReducer(searchResults = null, action){
   switch (action.type) {

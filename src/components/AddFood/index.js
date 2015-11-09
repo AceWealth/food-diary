@@ -13,7 +13,7 @@ import Spinner from '../Spinner';
 import DateTimeInput from './DateTimeInput';
 
 
-@connect( state => state,
+@connect( state => state.addFood,
           bindActions({ NavigationActions, AddFoodActions, FoodDiaryActions}))
 export default class AddFood extends Component {
   static propTypes = {
