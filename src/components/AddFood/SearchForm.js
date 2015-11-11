@@ -24,8 +24,7 @@ export default class SearchForm extends Component {
 
     return (
       <form className='search-form'>
-        <input  autoFocus
-                placeholder='Now tell me about your meal'
+        <input  placeholder='Now tell me about your meal'
                 value={searchTerm}
                 onChange={ this._handleChange.bind(this) }/>
       </form>

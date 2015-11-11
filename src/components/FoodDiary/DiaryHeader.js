@@ -14,11 +14,13 @@ export default class DiaryHeader extends Component {
     return (
       <div className='diary-header'>
         <a className='previous-day'
+           title="Go to previous day"
            onClick={gotoPreviousDay}/>
         <h2>
           { formatDate(displayedDate) }
         </h2>
         <a className='next-day'
+           title="Go to next day"
            onClick={gotoNextDay}/>
       </div>
     );

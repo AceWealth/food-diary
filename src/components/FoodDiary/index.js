@@ -35,6 +35,7 @@ export default class FoodDiary extends Component {
                        gotoPreviousDay={gotoDashboard.bind(this, previousDay(displayedDate), "slideRight")} />
           <DiaryContent diaryEntries={todayEntries}/>
           <a className='add-food'
+             title="Add an entry"
              onClick={gotoAddFood.bind(this, displayedDate, "slideUp")}/>
         </div>
       );

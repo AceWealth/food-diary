@@ -4,10 +4,15 @@
 .app-container
   background: $color-light
 
+.app-body > div
+  background: $color-light
+
 .app-header
-  @include fa($fa-heartbeat)
   background: $color-primary
-  color: $color-light
+
+  h1
+    color: $color-light
+    @include fa($fa-heartbeat)
 
 // Diary View
 .diary-container
