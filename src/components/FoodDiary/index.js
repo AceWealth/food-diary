@@ -7,7 +7,7 @@ import * as NavigationActions from '../../actions/NavigationActions'
 import DiaryHeader from './DiaryHeader';
 import DiaryContent from './DiaryContent';
 
-import {isSameDate} from '../../utilities/DateUtilities';
+import {isSameDate, nextDay, previousDay} from '../../utilities/DateUtilities';
 
 @connect(state => state,
          bindActions({NavigationActions}))
@@ -31,10 +31,11 @@ export default class FoodDiary extends Component {
     return (
         <div className='diary-container'>
           <DiaryHeader displayedDate={displayedDate}
-                       gotoDate={gotoDashboard} />
+                       gotoNextDay={gotoDashboard.bind(this, nextDay(displayedDate), "slideLeft")}
+                       gotoPreviousDay={gotoDashboard.bind(this, previousDay(displayedDate), "slideRight")} />
           <DiaryContent diaryEntries={todayEntries}/>
           <a className='add-food'
-             onClick={() => gotoAddFood(displayedDate)}/>
+             onClick={gotoAddFood.bind(this, displayedDate, "slideUp")}/>
         </div>
       );
   }

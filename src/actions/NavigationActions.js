@@ -1,9 +1,19 @@
 import { pushState } from 'redux-router';
 import {encode} from '../utilities/DateUtilities';
 
-function goto(page){ return pushState(null, page); }
+export const ROUTER_ANIMATION = 'ROUTER_ANIMATION';
 
-export function gotoAddFood(date){ return goto("/add-food/" + encode(date)); }
-export function gotoDashboard(date){
-  return goto("/dashboard/" + encode(date));
+function goto(page, routerAnimation = 'none'){
+  return (dispatch) => {
+      dispatch({type: ROUTER_ANIMATION, routerAnimation});
+      dispatch(pushState(null, page));
+  };
+}
+
+export function gotoAddFood(date, routerAnimation){
+  return goto("/add-food/" + encode(date), routerAnimation);
+}
+
+export function gotoDashboard(date, routerAnimation){
+  return goto("/dashboard/" + encode(date), routerAnimation);
 }

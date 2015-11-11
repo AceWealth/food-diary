@@ -8,7 +8,7 @@ export const CHANGE_SELECTED_PERIOD = "CHANGE_SELECTED_PERIOD";
 export function addFood(targetDate, selectedPeriod, foodItem) {
   return (dispatch) => {
     dispatch(addFoodAction(targetDate, selectedPeriod, foodItem))
-    dispatch(gotoDashboard(targetDate))
+    dispatch(gotoDashboard(targetDate, "slideDown"))
   };
 };
 

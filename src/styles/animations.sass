@@ -1,0 +1,51 @@
+.app-body
+  .animation-enter
+    opacity: 0.01
+
+  .animation-enter.animation-enter-active
+    opacity: 1
+    transition: all 500ms ease
+
+  .animation-leave
+    opacity: 1
+
+  .animation-leave.animation-leave-active
+    opacity: 0.01
+    transition: all 300ms ease
+
+  &.none
+    transition: none
+
+  &.slideUp
+    .animation-enter
+      transform: translateY(100%)
+
+    .animation-enter.animation-enter-active
+      transform: translateY(0)
+
+  &.slideDown
+    .animation-leave
+      transform: translateY(0)
+
+    .animation-leave.animation-leave-active
+      transform: translateY(100%)
+
+  &.slideLeft
+    .animation-enter
+      transform: translateX(100%)
+    .animation-enter.animation-enter-active
+      transform: translateX(0)
+    .animation-leave
+      transform: translateX(0)
+    .animation-leave.animation-leave-active
+      transform: translateX(-100%)
+
+  &.slideRight
+    .animation-enter
+      transform: translateX(-100%)
+    .animation-enter.animation-enter-active
+      transform: translateX(0)
+    .animation-leave
+      transform: translateX(0)
+    .animation-leave.animation-leave-active
+      transform: translateX(100%)

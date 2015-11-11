@@ -31,7 +31,7 @@ export default class AddFood extends Component {
 
     return (
       <div className='add-food-container'>
-        <AddFoodHeader onCancel={gotoDashboard.bind(this, targetDate)}/>
+        <AddFoodHeader onCancel={gotoDashboard.bind(this, targetDate, "slideDown")}/>
         <DateTimeInput date={targetDate}
                        onDateChange={gotoAddFood}
                        period={ selectedPeriod }

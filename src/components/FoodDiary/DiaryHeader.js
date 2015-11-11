@@ -1,24 +1,25 @@
 import React, { Component, PropTypes } from 'react';
-import { formatDate, nextDay, previousDay } from '../../utilities/DateUtilities'
+import { formatDate } from '../../utilities/DateUtilities'
 
 export default class DiaryHeader extends Component {
   static propTypes = {
     displayedDate: PropTypes.instanceOf(Date).isRequired,
-    gotoDate: PropTypes.func.isRequired
+    gotoPreviousDay: PropTypes.func.isRequired,
+    gotoNextDay: PropTypes.func.isRequired
   }
 
   render() {
-    const { displayedDate, gotoDate } = this.props;
+    const { displayedDate, gotoPreviousDay, gotoNextDay } = this.props;
 
     return (
       <div className='diary-header'>
         <a className='previous-day'
-           onClick={gotoDate.bind(this, previousDay(displayedDate))}/>
+           onClick={gotoPreviousDay}/>
         <h2>
           { formatDate(displayedDate) }
         </h2>
         <a className='next-day'
-           onClick={gotoDate.bind(this, nextDay(displayedDate))}/>
+           onClick={gotoNextDay}/>
       </div>
     );
   }

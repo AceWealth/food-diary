@@ -1,6 +1,7 @@
 html, body, #root
   width: 100%
   height: 100%
+  overflow: hidden
 
 #root
   padding: 20px 0
@@ -17,6 +18,16 @@ html, body, #root
 
 .app-header
   display: block
+
+.app-body
+  position: relative
+  width: 100%
+  height: 100%
+
+  > div
+    position: absolute
+    width: 100%
+    height: 100%
 
 // Diary view
 .diary-container
@@ -73,6 +84,7 @@ html, body, #root
 
 .add-food-container,
 .diary-container
+  height: 100%
   flex: 1
   overflow-y: hidden
   display: flex
