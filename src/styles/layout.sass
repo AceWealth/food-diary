@@ -8,13 +8,14 @@ html, body, #root
 
 .app-container
   margin: 0 auto
-  max-width: 600px
-  min-width: 400px
-  min-height: 600px
+  width: 600px
   height: 100%
   display: flex
   flex-direction: column
   overflow: hidden
+
+  @media (max-width: 600px)
+    width: 100%;
 
 .app-header
   display: block
@@ -55,19 +56,21 @@ html, body, #root
 
   .date-time
     display: flex
+    flex-wrap: wrap
     justify-content: center
     align-items: center
     flex: 0 0 auto
-    height: 50px
+    padding: 20px 0
 
     .timepicker
       margin-left: 20px
       display: flex
       align-items: center
 
-
-
 // Common
+.empty-message
+  padding: 40px 20px
+
 .add-food-header,
 .diary-header
   display: flex
