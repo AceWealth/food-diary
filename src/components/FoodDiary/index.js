@@ -9,6 +9,8 @@ import DiaryContent from './DiaryContent';
 
 import {isSameDate, nextDay, previousDay} from '../../utilities/DateUtilities';
 
+import './FoodDiary.sass';
+
 @connect(state => state,
          bindActions({NavigationActions}))
 export default class FoodDiary extends Component {

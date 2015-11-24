@@ -1,19 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import DateUtilities from '../../utilities/DateUtilities'
 
-export default class DiaryEntry extends Component {
-  static propTypes = {
-    name: PropTypes.string.isRequired
-  }
+const DiaryEntry = (props) => {
+  return (<div className='diary-entry'>
+            <div className='name'>
+              { props.name }
+            </div>
+          </div>);
+};
 
-  render(){
-    const {name, period} = this.props;
-    return (
-      <div className='diary-entry'>
-        <div className='name'>
-          { name }
-        </div>
-      </div>
-    );
-  }
-}
+export default DiaryEntry;

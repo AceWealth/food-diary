@@ -5,6 +5,8 @@ import TransitionGroup from 'react-addons-css-transition-group';
 import bindActions from '../utilities/bindActions';
 import * as NavigationActions from '../actions/NavigationActions'
 
+import "./App.sass";
+
 @connect( state => {
   return {
     routerAnimation: state.routerAnimation,

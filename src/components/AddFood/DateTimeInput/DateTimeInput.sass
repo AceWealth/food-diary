@@ -1,0 +1,22 @@
+@import "../../../sharedStyles/color"
+@import "../../../sharedStyles/font-awesome"
+
+.date-time
+  font-size: 1.1em
+  display: flex
+  justify-content: center
+  align-items: center
+  flex: 0 0 auto
+  padding: 20px 0
+
+  .datepicker
+    @include fa($fa-calendar)
+    &:before
+      margin-right: 15px
+
+    .date
+      color: inherit
+      border-bottom: 4px solid transparent;
+
+      &:hover
+        border-bottom: 4px solid $color-secondary;

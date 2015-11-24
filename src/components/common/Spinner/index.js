@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import './Spinner.sass'
 
 const Spinner = (props) => {
   return (<div className="spinner-container">

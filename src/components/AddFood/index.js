@@ -9,9 +9,10 @@ import * as FoodDiaryActions from '../../actions/FoodDiaryActions'
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 import AddFoodHeader from './AddFoodHeader';
-import Spinner from '../Spinner';
-import DateTimeInput from './DateTimeInput';
+import Spinner from '../common/Spinner/';
+import DateTimeInput from './DateTimeInput/';
 
+import "./AddFood.sass";
 
 @connect( state => state.addFood,
           bindActions({ NavigationActions, SearchFoodAction, FoodDiaryActions}))

@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
-import DateInput from '../common/DateInput';
-import PeriodInput from '../common/PeriodInput';
+import DateInput from './DateInput';
+
+import "./DateTimeInput.sass";
 
 export default class DateTimeInput extends Component {
   static propTypes = {
@@ -17,7 +18,6 @@ export default class DateTimeInput extends Component {
     return (
       <div className="date-time">
         <DateInput date={date} onChange={onDateChange}/>
-        <PeriodInput period={period} onChange={onPeriodChange}/>
       </div>
     );
   }

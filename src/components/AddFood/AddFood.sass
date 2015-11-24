@@ -1,0 +1,43 @@
+@import "../../sharedStyles/color"
+@import "../../sharedStyles/font-awesome"
+@import "../../sharedStyles/list"
+@import "../../sharedStyles/navigation"
+
+.add-food-container
+  position: relative
+  height: 100%
+  display: flex
+  flex-direction: column
+  overflow-y: hidden
+
+  .add-food-header
+    @extend %navigation-header
+
+    .cancel-button
+      @include fa($fa-chevron-left)
+
+  .search-form
+    flex: 0 0 auto
+    input
+      width: 100%
+      padding: 20px
+      border: none
+      outline: none
+      border-top: 1px solid rgba($color-primary, 0.7)
+      border-bottom: 1px solid rgba($color-primary, 0.7)
+      font-size: 1.2em
+      background: lighter($color-light, 100%)
+
+  .search-results-container
+    @extend %list-view
+
+  .search-result
+    @extend %list-entry
+    @include fa($fa-search)
+    &:before
+      color: $color-secondary
+      font-size: 1.2em
+      margin-right: 15px
+
+    &:hover
+      background: rgba($color-primary, 0.2)
