@@ -4,14 +4,12 @@ import Period from '../../../models/Period';
 
 export default class PeriodInput extends Component {
   static propTypes = {
-    onChange: PropTypes.func.isRequired,
-    period: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
   }
 
   _renderOption(period){
-    const isSelected = this.props.period === period;
     return (
-        <a className={"period " + (isSelected? "active": "")}
+        <a className="period"
            key={period}
            onClick={this.props.onChange.bind(this, period)}>
           {period}
@@ -20,7 +18,7 @@ export default class PeriodInput extends Component {
   }
 
   render(){
-    const { date, onChange, period } = this.props;
+    const {onChange} = this.props;
 
     return (
       <div className="timepicker">

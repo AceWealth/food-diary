@@ -16,6 +16,11 @@
 .app-header
   display: block
   background: $color-primary
+  transition: background 200ms ease
+
+  &:hover, &:active
+    background: darken($color-primary, 10%)
+
 
   h1
     color: $color-light

@@ -23,7 +23,7 @@ export default class DateTimeInput extends Component {
         editMode?
           <div className="date-time">
             <DateInput date={date} onChange={onDateChange}/>
-            <PeriodInput period={period} onChange={onPeriodChange}/>
+            <PeriodInput onChange={onPeriodChange}/>
           </div> :
           <a className="date-time-preview"
              onClick={() => onDateChange(date)}>
