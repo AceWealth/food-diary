@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import Select from 'react-select'
-import Period from '../../models/Period';
+import Period from '../../../models/Period';
 
 export default class PeriodInput extends Component {
   static propTypes = {
@@ -9,14 +8,15 @@ export default class PeriodInput extends Component {
     period: PropTypes.string.isRequired,
   }
 
-  renderValue(option) {
+  _renderOption(period){
+    const isSelected = this.props.period === period;
     return (
-        <div>
-          <span className='period-value'>
-            {option.label}
-          </span>
-        </div>
-      );
+        <a className={"period " + (isSelected? "active": "")}
+           key={period}
+           onClick={this.props.onChange.bind(this, period)}>
+          {period}
+        </a>
+    );
   }
 
   render(){
@@ -24,12 +24,7 @@ export default class PeriodInput extends Component {
 
     return (
       <div className="timepicker">
-        <Select value={period}
-            clearable={false}
-            searchable={false}
-            options={Period}
-            valueRenderer={this.renderValue}
-            onChange={onChange}/>
+        { Period.map(this._renderOption.bind(this)) }
       </div>
     );
   }
