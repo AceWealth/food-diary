@@ -7,7 +7,7 @@ export default class AddFoodHeader extends Component {
   }
 
   static message = {
-    SELECT_TIME: "First tell me when you have this meal",
+    SELECT_TIME: "First tell me when did you have this meal",
     SELECT_FOOD: "Now tell me about your meal"
   }
 
