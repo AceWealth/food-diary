@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import bindActions from '../../utilities/bindActions';
 import * as NavigationActions from '../../actions/NavigationActions'
 import * as SearchFoodActions from '../../actions/SearchFoodActions';
-import * as FoodDiaryActions from '../../actions/FoodDiaryActions'
+import * as AddFoodFormActions from '../../actions/AddFoodFormActions'
 
 import AddFoodHeader from './AddFoodHeader';
 import SearchFood from './SearchFood';
@@ -15,14 +15,14 @@ import FormState from '../../models/AddFoodFormState';
 import "./AddFood.sass";
 
 @connect( state => state.addFood,
-          bindActions({ NavigationActions, SearchFoodActions, FoodDiaryActions}))
+          bindActions({ NavigationActions, SearchFoodActions, AddFoodFormActions}))
 export default class AddFood extends Component {
   static propTypes = {
     searchTerm: PropTypes.string.isRequired,
     searchResults: PropTypes.array,
     formState: PropTypes.string.isRequired,
     SearchFoodActions: PropTypes.objectOf(PropTypes.func).isRequired,
-    FoodDiaryActions: PropTypes.objectOf(PropTypes.func).isRequired,
+    AddFoodFormActions: PropTypes.objectOf(PropTypes.func).isRequired,
     NavigationActions: PropTypes.objectOf(PropTypes.func).isRequired,
   }
 
@@ -32,7 +32,7 @@ export default class AddFood extends Component {
 
     const { onSearchTermChanges, onSearch } = this.props.SearchFoodActions;
     const { gotoAddFood, gotoDashboard } = this.props.NavigationActions;
-    const { addFood, changeSelectedPeriod } = this.props.FoodDiaryActions;
+    const { addFood, changeSelectedPeriod } = this.props.AddFoodFormActions;
 
     return (
       <div className='add-food-container'>

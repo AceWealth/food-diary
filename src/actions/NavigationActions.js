@@ -1,7 +1,7 @@
 import { pushState } from 'redux-router';
 import {encode} from '../utilities/DateUtilities';
 
-import {resetAddFoodForm} from './SearchFoodActions';
+import {resetAddFoodForm} from './AddFoodFormActions';
 
 export const ROUTER_ANIMATION = 'ROUTER_ANIMATION';
 

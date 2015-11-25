@@ -1,5 +1,4 @@
-import { CHANGE_SELECTED_PERIOD } from '../../actions/FoodDiaryActions';
-import { RESET_ADD_FOOD_FORM } from '../../actions/SearchFoodActions';
+import { CHANGE_SELECTED_PERIOD, RESET_ADD_FOOD_FORM} from '../../actions/AddFoodFormActions';
 
 export default function selectedPeriodReducer(state = "", action){
   switch (action.type) {

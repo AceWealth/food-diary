@@ -2,9 +2,8 @@ import { expect } from 'chai';
 
 import reducer from '../../src/reducers/AddFood/';
 
-import {resetAddFoodForm, onSearchTermChanges,
-        onSearchCompleted } from '../../src/actions/SearchFoodActions';
-import {changeSelectedPeriod} from '../../src/actions/FoodDiaryActions';
+import {onSearchTermChanges, onSearchCompleted } from '../../src/actions/SearchFoodActions';
+import {resetAddFoodForm, changeSelectedPeriod} from '../../src/actions/AddFoodFormActions';
 
 import FormState from '../../src/models/AddFoodFormState.js';
 

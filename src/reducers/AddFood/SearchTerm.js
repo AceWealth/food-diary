@@ -1,5 +1,5 @@
-import {ON_SEARCH_TERM_CHANGES, RESET_ADD_FOOD_FORM} from '../../actions/SearchFoodActions';
-import {ADD_FOOD} from '../../actions/FoodDiaryActions'
+import {ON_SEARCH_TERM_CHANGES} from '../../actions/SearchFoodActions';
+import {ADD_FOOD, RESET_ADD_FOOD_FORM} from '../../actions/AddFoodFormActions'
 
 export default function searchTermReducer(searchTerm = "", action){
   switch (action.type) {

@@ -2,7 +2,6 @@ export const ON_SEARCH_TERM_CHANGES = "ON_SEARCH_TERM_CHANGES";
 export const ON_SEARCH = "ON_SEARCH";
 export const ON_SEARCH_COMPLETED = "ON_SEARCH_COMPLETED";
 export const ON_SEARCH_FAILED = "ON_SEARCH_FAILED";
-export const RESET_ADD_FOOD_FORM = "RESET_ADD_FOOD_FORM";
 
 import { get } from 'jquery';
 
@@ -33,7 +32,3 @@ export function onSearchTermChanges(searchTerm) {
     searchTerm
   }
 };
-
-export function resetAddFoodForm(){
-  return {type: RESET_ADD_FOOD_FORM};
-}

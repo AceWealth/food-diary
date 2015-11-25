@@ -1,4 +1,4 @@
-import {ADD_FOOD} from '../actions/FoodDiaryActions'
+import {ADD_FOOD} from '../actions/AddFoodFormActions'
 import {push} from '../utilities/extendedLodash';
 
 export default function diaryEntriesReducer(diaryEntries = [], action){

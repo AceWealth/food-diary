@@ -1,6 +1,5 @@
 import FormState from '../../models/AddFoodFormState.js';
-import { CHANGE_SELECTED_PERIOD } from '../../actions/FoodDiaryActions';
-import { RESET_ADD_FOOD_FORM } from '../../actions/SearchFoodActions';
+import { RESET_ADD_FOOD_FORM, CHANGE_SELECTED_PERIOD } from '../../actions/AddFoodFormActions';
 
 export default function formState(state = FormState.SELECT_TIME, action){
   switch (action.type){
