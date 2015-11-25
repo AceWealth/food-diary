@@ -3,6 +3,8 @@ import React, { Component, PropTypes } from 'react';
 import DateInput from './DateInput';
 import PeriodInput from './PeriodInput';
 
+import { formatDate } from '../../../utilities/DateUtilities'
+
 import "./DateTimeInput.sass";
 
 export default class DateTimeInput extends Component {
@@ -10,17 +12,23 @@ export default class DateTimeInput extends Component {
     date: PropTypes.instanceOf(Date).isRequired,
     period: PropTypes.string.isRequired,
     onDateChange: PropTypes.func.isRequired,
-    onPeriodChange: PropTypes.func.isRequired
+    onPeriodChange: PropTypes.func.isRequired,
+    editMode: PropTypes.bool.isRequired
   }
 
   render() {
-    const { date, onDateChange, period, onPeriodChange } = this.props;
+    const { date, onDateChange, period, onPeriodChange, editMode} = this.props;
 
     return (
-      <div className="date-time">
-        <DateInput date={date} onChange={onDateChange}/>
-        <PeriodInput period={period} onChange={onPeriodChange}/>
-      </div>
+        editMode?
+          <div className="date-time">
+            <DateInput date={date} onChange={onDateChange}/>
+            <PeriodInput period={period} onChange={onPeriodChange}/>
+          </div> :
+          <a className="date-time-preview"
+             onClick={() => onDateChange(date)}>
+            { formatDate(date) + ", " + period}
+          </a>
     );
   }
 }

@@ -1,6 +1,8 @@
 import { pushState } from 'redux-router';
 import {encode} from '../utilities/DateUtilities';
 
+import {resetAddFoodForm} from './SearchFoodActions';
+
 export const ROUTER_ANIMATION = 'ROUTER_ANIMATION';
 
 function goto(page, routerAnimation = 'none'){
@@ -11,7 +13,10 @@ function goto(page, routerAnimation = 'none'){
 }
 
 export function gotoAddFood(date, routerAnimation){
-  return goto("/add-food/" + encode(date), routerAnimation);
+  return (dispatch) => {
+    dispatch(resetAddFoodForm())
+    dispatch(goto("/add-food/" + encode(date), routerAnimation));
+  };
 }
 
 export function gotoDashboard(date, routerAnimation){
