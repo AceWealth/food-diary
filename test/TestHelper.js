@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'
 
 const middlewares = [ thunk ]
 
-export default function mockStore(getState, expectedActions, done) {
+export function mockStore(getState, expectedActions, done) {
   if (!Array.isArray(expectedActions)) {
     throw new Error('expectedActions should be an array of expected actions.')
   }
@@ -42,3 +42,11 @@ export default function mockStore(getState, expectedActions, done) {
 
   return mockStoreWithMiddleware()
 }
+
+export function testSimpleAction(actionName, action, expected){
+  describe(actionName, () => {
+    it('should return the proper action object', () => {
+      expect(action).to.deep.equal(expected);
+    });
+  });
+};

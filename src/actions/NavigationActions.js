@@ -1,4 +1,4 @@
-import { pushState } from 'redux-router';
+import {pushState} from 'redux-router';
 import {encode} from '../utilities/DateUtilities';
 
 import {resetAddFoodForm} from './AddFoodFormActions';
