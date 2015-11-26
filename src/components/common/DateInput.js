@@ -12,10 +12,14 @@ export default class DateInput extends Component {
   }
 
   componentDidMount() {
-    new Pikaday({
+    this.pikaday = new Pikaday({
       field: ReactDOM.findDOMNode(this.refs.date),
       onSelect: this.props.onChange
     });
+  }
+
+  componentWillUnmount(){
+    this.pikaday.destroy();
   }
 
   render() {
