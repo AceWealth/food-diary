@@ -1,5 +1,6 @@
 import { gotoDashboard } from './NavigationActions';
 import DiaryEntry from '../models/DiaryEntry';
+import DateUtilities from '../utilities/DateUtilities';
 
 export function addFood(targetDate, selectedPeriod, foodItem) {
   return (dispatch) => {
@@ -12,7 +13,7 @@ export const ADD_FOOD = "ADD_FOOD";
 export function addFoodAction(targetDate, selectedPeriod, foodItem){
   return {
     type: ADD_FOOD,
-    diaryEntry: new DiaryEntry(+new Date(), foodItem.name, targetDate, selectedPeriod)
+    diaryEntry: new DiaryEntry(+DateUtilities.now(), foodItem.name, targetDate, selectedPeriod)
   }
 };
 

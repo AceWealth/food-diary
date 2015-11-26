@@ -43,10 +43,10 @@ export function mockStore(getState, expectedActions, done) {
   return mockStoreWithMiddleware()
 }
 
-export function testSimpleAction(actionName, action, expected){
+export function testSimpleAction(actionName, actionCreator, expected){
   describe(actionName, () => {
     it('should return the proper action object', () => {
-      expect(action).to.deep.equal(expected);
+      expect(actionCreator()).to.deep.equal(expected);
     });
   });
 };

@@ -11,16 +11,16 @@ import * as actions from '../../src/actions/SearchFoodActions';
 
 describe('SearchFoodActions', () => {
   testSimpleAction('onSearchCompleted',
-                    actions.onSearchCompleted('searchResults'),
+                    () => actions.onSearchCompleted('searchResults'),
                     { type: actions.ON_SEARCH_COMPLETED,
                       searchResults: 'searchResults'});
 
   testSimpleAction('onSearchFailed',
-                    actions.onSearchFailed(),
+                    () => actions.onSearchFailed(),
                     { type: actions.ON_SEARCH_FAILED});
 
   testSimpleAction('onSearchTermChanges',
-                    actions.onSearchTermChanges('searchTerm'),
+                    () => actions.onSearchTermChanges('searchTerm'),
                     { type: actions.ON_SEARCH_TERM_CHANGES,
                       searchTerm: 'searchTerm'});
 
