@@ -1,13 +1,13 @@
+import SearchService from './SearchService';
+
 export const ON_SEARCH_TERM_CHANGES = "ON_SEARCH_TERM_CHANGES";
 export const ON_SEARCH = "ON_SEARCH";
 export const ON_SEARCH_COMPLETED = "ON_SEARCH_COMPLETED";
 export const ON_SEARCH_FAILED = "ON_SEARCH_FAILED";
 
-import { get } from 'jquery';
-
 export function onSearch(searchTerm) {
   return (dispatch) => {
-    get('https://test.holmusk.com/food/search?q=' + searchTerm)
+    return SearchService.getSearchResult(searchTerm)
       .then((searchResults) => dispatch(onSearchCompleted(searchResults)),
             () => dispatch(onSearchFailed()));
   };
@@ -32,3 +32,4 @@ export function onSearchTermChanges(searchTerm) {
     searchTerm
   }
 };
+
