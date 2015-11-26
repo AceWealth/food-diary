@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import DateInput from './DateInput';
+import DateInput from '../../common/DateInput';
 import PeriodInput from './PeriodInput';
 
 import { formatDate } from '../../../utilities/DateUtilities'

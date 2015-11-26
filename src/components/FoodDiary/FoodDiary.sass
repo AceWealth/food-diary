@@ -12,11 +12,17 @@
 
   .diary-header
     @extend %navigation-header
+    padding: 15px
+
     .previous-day
       @include fa($fa-chevron-left)
 
     .next-day
       @include fa($fa-chevron-right)
+
+    .date
+      font-size: 1.2em
+      font-weight: bold
 
   .add-food
     @include fa($fa-plus-circle)

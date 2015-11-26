@@ -33,6 +33,7 @@ export default class FoodDiary extends Component {
     return (
         <div className='diary-container'>
           <DiaryHeader displayedDate={displayedDate}
+                       goToDate={gotoDashboard.bind(this)}
                        gotoNextDay={gotoDashboard.bind(this, nextDay(displayedDate), "slideLeft")}
                        gotoPreviousDay={gotoDashboard.bind(this, previousDay(displayedDate), "slideRight")} />
           <DiaryContent diaryEntries={todayEntries}/>
