@@ -7,14 +7,6 @@ import {resetAddFoodForm, changeSelectedPeriod} from '../../src/actions/AddFoodF
 
 import FormState from '../../src/models/AddFoodFormState.js';
 
-// ** start excuses **
-// Yes, there's duplication
-// Some of the basic cases that I observe:
-// * reducer should have initial state
-// * reducer should retain its state given ignored action
-// * reducer should change its state given a specific state
-// Would refactor into some test helper method once I get more familiar with this architecture.
-// ** end excuses **
 
 describe('AddFood reducer', () => {
   describe('searchTerm', () => {
