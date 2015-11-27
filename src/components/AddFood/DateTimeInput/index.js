@@ -20,15 +20,14 @@ export default class DateTimeInput extends Component {
     const { date, onDateChange, period, onPeriodChange, editMode} = this.props;
 
     return (
-        editMode?
-          <div className="date-time">
-            <DateInput date={date} onChange={onDateChange}/>
-            <PeriodInput onChange={onPeriodChange}/>
-          </div> :
-          <a className="date-time-preview"
-             onClick={() => onDateChange(date)}>
-            { formatDate(date) + ", " + period}
-          </a>
+        <div className={ "date-time " + (editMode? "": "preview")} >
+          {editMode?
+            [ <DateInput date={date} onChange={onDateChange} key="date-input"/>,
+              <PeriodInput onChange={onPeriodChange} key="period-input"/>] :
+            <a onClick={() => onDateChange(date)}>
+                { formatDate(date) + ", " + period}
+            </a>}
+        </div>
     );
   }
 }

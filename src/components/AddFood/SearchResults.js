@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { isEmpty } from '../../utilities/extendedLodash';
 
 import NoResult from '../common/NoResult';
+import StaggerAnimation from '../common/StaggerAnimation';
 
 export default class SearchResults extends Component {
   static propTypes = {
@@ -22,7 +23,9 @@ export default class SearchResults extends Component {
   _renderSearchResults(searchResults){
     return(
       <div className='search-results'>
-        { searchResults.map(this._renderSearchResult)}
+        <StaggerAnimation>
+          { searchResults.map(this._renderSearchResult)}
+        </StaggerAnimation>
       </div>
       );
   }
