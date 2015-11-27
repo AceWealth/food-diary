@@ -1,5 +1,6 @@
 import React, { Component, PropTypes, Children, cloneElement } from 'react'
 import { StaggeredMotion, spring } from 'react-motion'
+import { range } from 'lodash';
 
 const motionConstant = [300, 30];
 export default class StaggerAnimation extends Component {
@@ -22,10 +23,7 @@ export default class StaggerAnimation extends Component {
 
   render() {
     const childCount = Children.count(this.props.children)
-    const defaultStyles = new Array(childCount).fill({
-      opacity: 0,
-      translateY: 100
-    })
+    const defaultStyles = range(childCount).map(() => { return { opacity: 0, translateY: 100}; })
     return (
       <StaggeredMotion defaultStyles={defaultStyles}
                        styles={this.getStyles}>
