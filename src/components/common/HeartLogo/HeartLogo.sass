@@ -1,0 +1,22 @@
+.heartbeat-icon
+  width: 22px
+  height: 22px
+  margin-right: 5px
+
+  svg
+    transform: scale(0.08)
+    transform-origin: top left
+
+.heart
+  fill: white
+
+svg .pulse
+  stroke-width: 15
+  stroke-dasharray: 3000 300
+  stroke-dashoffset: 0
+  animation: dash 5s linear forwards
+  animation-iteration-count: infinite;
+
+@keyframes dash
+  to
+    stroke-dashoffset: -3000

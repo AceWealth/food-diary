@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import TransitionGroup from 'react-addons-css-transition-group';
 
 import bindActions from '../utilities/bindActions';
-import * as NavigationActions from '../actions/NavigationActions'
+import * as NavigationActions from '../actions/NavigationActions';
+
+import HeartLogo from './common/HeartLogo/';
 
 import "./App.sass";
 
@@ -22,6 +24,7 @@ export default class App extends Component {
         <a className="app-header"
            onClick={gotoDashboard}
            title="Go to today's entries">
+          <HeartLogo/>
           <h1> Food Diary </h1>
         </a>
         <TransitionGroup component="div"

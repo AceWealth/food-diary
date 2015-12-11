@@ -22,15 +22,17 @@
     width: 100%;
 
 .app-header
-  display: block
   background: $color-primary
   transition: background 200ms ease
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 
   &:hover, &:active
     background: darken($color-primary, 10%)
 
   h1
-    @include fa($fa-heartbeat)
     color: $color-light
 
     @media (max-width: 600px)
